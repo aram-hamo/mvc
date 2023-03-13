@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 use AramHamo\Mvc\Router;
 use AramHamo\Mvc\Model;
 
