@@ -1,6 +1,6 @@
 vendor/
-src/tags
-src/tmp/
+tags
+tmp/
 *.lock
 *.sqlite
 *.vim
