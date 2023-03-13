@@ -1,0 +1,17 @@
+{
+    "name": "aram-hamo/mvc",
+    "description": "Model View Controller Framework",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "autoload": {
+      "psr-4":{
+        "AramHamo\\Mvc\\":"src/Mvc/"
+      }
+    },
+    "authors": [
+        {
+            "name": "Aram Hamo",
+            "email": "contact@aramhamo.me"
+        }
+    ]
+}
