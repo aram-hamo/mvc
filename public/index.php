@@ -4,16 +4,21 @@ use AramHamo\Mvc\Router;
 use AramHamo\Mvc\Model;
 
 $router = new Router;
-$serversoftware = $_SERVER['SERVER_SOFTWARE'];
-if(is_string($serversoftware)){
-  if(strpos($serversoftware,'PHP') !== false){
+if(isset($_SERVER['SERVER_SOFTWARE'])){
+  define('SERVERSOFTWARE',$_SERVER['SERVER_SOFTWARE']);
+}else{
+  define('SERVERSOFTWARE','');
+}
+
+if(!empty(SERVERSOFTWARE)){
+  if(strpos(SERVERSOFTWARE,'PHP') !== false){
     $SERVER_SOFTWWARE = "php";
     if(isset($_SERVER['PATH_INFO'])){
       $router->listen($_SERVER['PATH_INFO']);
     }else{
       $router->listen('');
     }
-  }else if(strpos($serversoftware,'Apache') !== false){
+  }else if(strpos(SERVERSOFTWARE,'Apache') !== false){
     $SERVER_SOFTWWARE = "apache";
     if(isset($_GET['url'])){
       $router->listen($_GET['url']);
@@ -22,7 +27,7 @@ if(is_string($serversoftware)){
     }
   }
 }else{
-  if(is_string($argv[1])){
+  if(isset($argv[1])){
     $router->listen($argv[1]);
   }else{
     $router->listen('');
