@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+function help(){
+  echo "Usage:\n\n";
+  echo "serve         launch a local dev server\n";
+}
+if($argc < 2){
+
+  help();
+
+}elseif($argv[1] == "serve"){
+  shell_exec("php -S 0.0.0.0:8080 -t public");
+
+}else{
+
+  help();
+
+}
