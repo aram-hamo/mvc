@@ -4,11 +4,8 @@ use AramHamo\Mvc\Router;
 use AramHamo\Mvc\Model;
 
 $router = new Router;
-if(isset($_SERVER['SERVER_SOFTWARE'])){
-  define('SERVERSOFTWARE',$_SERVER['SERVER_SOFTWARE']);
-}else{
-  define('SERVERSOFTWARE','');
-}
+$_SERVER['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'] ?? '';
+define('SERVERSOFTWARE',$_SERVER['SERVER_SOFTWARE']);
 
 if(!empty(SERVERSOFTWARE)){
   if(strpos(SERVERSOFTWARE,'PHP') !== false){
