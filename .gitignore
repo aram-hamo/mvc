@@ -1,6 +1,5 @@
 vendor/
 tags
 tmp/
-*.lock
 *.sqlite
 *.vim
