@@ -1,8 +1,17 @@
 #!/usr/bin/env php
 <?php
+require_once 'vendor/autoload.php';
 function help(){
   echo "Usage:\n\n";
   echo "serve         launch a local dev server\n";
+  echo "migrate       migrate\n";
+}
+function migrate(){
+  $tables = glob("migrations/*.php");
+  foreach($tables as $table){
+    include $table;
+    $table::up();
+  }
 }
 if($argc < 2){
   help();
@@ -10,6 +19,8 @@ if($argc < 2){
 }elseif($argv[1] == "serve"){
   shell_exec("php -S 0.0.0.0:8080 -t public");
 
+}elseif($argv[1] == "migrate"){
+  migrate();
 }else{
   help();
 
