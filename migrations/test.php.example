@@ -1,0 +1,14 @@
+<?php
+use AramHamo\Mvc\Migration;
+use AramHamo\Mvc\Schema;
+
+$table = new class extends Schema{
+  static function up(){
+    $m = new Schema;
+    $m->create('example_table',[
+      Migration::$id,
+      Migration::text("text_attr",16/* lengthi */),
+      Migration::int("int_attr",16/* length */)
+    ]);
+  }
+};
