@@ -12,6 +12,12 @@ class Migration{
     }
 
   }
+  public static function char(String $attr,int $length,bool $unique=false):String {
+    return self::text($attr,$length,$unique);
+  }
+  public static function varchar(String $attr,int $length,bool $unique=false):String {
+    return self::text($attr,$length,$unique);
+  }
   public static function int(String $attr,int $length,bool $unique=false):String{
     if($length < 1){
       return "$attr INT";
