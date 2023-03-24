@@ -4,11 +4,16 @@ use AramHamo\Mvc\Schema;
 
 $table = new class extends Schema{
   static function up(){
-    $m = new Schema;
-    $m->create('example_table',[
-      Migration::$id,
-      Migration::text("text_attr",16/* lengthi */),
-      Migration::int("int_attr",16/* length */)
-    ]);
+    $s = new Schema;
+    $m = new Migration;
+    $s->create('example_table',[
+      $m->id(),
+      $m->text("text_attr",16/* length */),
+      $m->char("char_attr",16/* length */),
+      $m->int("int_attr",16/* length */)
+      ]);
+  }
+  static function down(){
+    $this->dropIfExists('example_table');
   }
 };
