@@ -6,7 +6,7 @@ class Schema extends DB{
   public function create(String $table_name,Array $attr){
     $table = $attr;
     $fields = '';
-    for($i = 1 ;count($table)-1 >= $i;$i++){
+    for($i = 0 ;count($table)-1 >= $i;$i++){
       if(count($table)-1 == $i){
         $fields .= $table[$i];
       }else{
@@ -17,7 +17,7 @@ class Schema extends DB{
     $createTable = $this->conn->exec($stmt);
   }
   public function dropIfExists(String $tableName){
-    $tdrop = $this->conn->prepare("drop table if exists ".$tableName);
+    $tdrop = $this->conn->prepare("DROP TABLE IF EXISTS ".$tableName);
     return $tdrop->execute();
   }
 }
