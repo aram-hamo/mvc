@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 require_once 'vendor/autoload.php';
+use AramHamo\Mvc\Schema;
 function help(){
   echo "Usage:\n\n";
   echo "serve         launch a local dev server\n";
@@ -13,6 +14,10 @@ function migrate(){
     $table::up();
   }
 }
+function drop($tableName){
+  $schema = new Schema;
+  $schema->dropIfExists($tableName);
+}
 if($argc < 2){
   help();
 
@@ -21,6 +26,9 @@ if($argc < 2){
 
 }elseif($argv[1] == "migrate"){
   migrate();
+}elseif($argv[1] == "drop"){
+  $table = $argv[2];
+  drop($table);
 }else{
   help();
 

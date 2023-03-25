@@ -16,4 +16,8 @@ class Schema extends DB{
     $stmt = "CREATE TABLE IF NOT EXISTS $table_name ($fields);";
     $createTable = $this->conn->exec($stmt);
   }
+  public function dropIfExists(String $tableName){
+    $tdrop = $this->conn->prepare("drop table if exists ".$tableName);
+    return $tdrop->execute();
+  }
 }
