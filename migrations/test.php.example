@@ -1,12 +1,12 @@
 <?php
 use AramHamo\Mvc\Migration;
 use AramHamo\Mvc\Schema;
-
+$GLOBALS['tableName'] = "example_table";
 $table = new class extends Schema{
   static function up(){
     $s = new Schema;
     $m = new Migration;
-    $s->create('example_table',[
+    $s->create($GLOBALS['tableName'],[
       $m->id(),
       $m->text("text_attr",16/* length */),
       $m->char("char_attr",16/* length */),
@@ -14,6 +14,6 @@ $table = new class extends Schema{
       ]);
   }
   static function down(){
-    $this->dropIfExists('example_table');
+    $this->dropIfExists($GLOBALS['tableName']);
   }
 };
