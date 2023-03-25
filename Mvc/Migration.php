@@ -2,16 +2,18 @@
 namespace AramHamo\Mvc;
 
 class Migration{
-  public function id():String{
-    return "id INTEGER PRIMARY KEY AUTOINCREMENT";
+  public $table = [];
+  public function id(){
+    $this->table["id"] = "id INTEGER PRIMARY KEY AUTOINCREMENT";
   }
 
-  public function text(String $attr,int $length,bool $unique=false):String {
+  public function text(String $attr,int $length,bool $unique=false){
     if($length < 1){
-      return "$attr TEXT";
+      $this->table["$attr"] = "$attr TEXT";
     }else{
-      return "$attr TEXT($length)";
+      $this->table["$attr"] = "$attr TEXT($length)";
     }
+    return $this;
 
   }
   public function char(String $attr,int $length,bool $unique=false):String {
@@ -36,8 +38,9 @@ class Migration{
     return "$attr BLOB";
 
   }
-  public function primaryKey(){
-    return "PRIMARY KEY($attr)";
+  public function primaryKey($attr){
+    $this->table["$attr"] .= ",PRIMARY KEY($attr)";
+    return $this;
 
   }
   public function unique($attr){

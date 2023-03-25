@@ -2,16 +2,14 @@
 use AramHamo\Mvc\Migration;
 use AramHamo\Mvc\Schema;
 $GLOBALS['tableName'] = "example_table";
-$table = new class extends Schema{
+$table = new class {
   static function up(){
     $s = new Schema;
     $m = new Migration;
-    $s->create($GLOBALS['tableName'],[
-      $m->id(),
-      $m->text("text_attr",16/* length */),
-      $m->char("char_attr",16/* length */),
-      $m->int("int_attr",16/* length */)
-      ]);
+    $m->text("text_attr",16/* length */);
+    $m->int("int_attr",16/* length */);
+    $m->text("char_attr",16/* length */)->primaryKey("char_attr");
+    $s->create($GLOBALS['tableName'],$m->table);
   }
   static function down(){
     $this->dropIfExists($GLOBALS['tableName']);
