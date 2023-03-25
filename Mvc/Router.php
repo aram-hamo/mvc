@@ -1,12 +1,13 @@
 <?php declare(strict_types=1);
+/* {{{ listen */
 namespace AramHamo\Mvc;
 use AramHamo\Mvc\Models;
 use AramHamo\Mvc\View;
 use AramHamo\Mvc\Controller;
-use AramHamo\Mvc\Controllers\Home;
+use AramHamo\Mvc\Routes;
+/* }}} */
 
 class Router{
-/* {{{ listen */
   public function listen($req){
 
   $req = strtolower($req);
@@ -21,13 +22,6 @@ class Router{
   if(isset($preq[1]) && $preq[0] == '/'){
       $preq = substr($preq,1,strlen($preq)-1);
   }
-    switch($preq){
-      case '':
-        Controller::serve(new Home);
-        break;
-      default:
-        echo "<h1>404</h1>";
-    }
+  Routes::listen($preq);
   }
-/* }}} */
 }
