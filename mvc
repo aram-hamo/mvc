@@ -21,6 +21,15 @@ function drop($tableName){
   $schema->dropIfExists($tableName);
   echo "\033[32mDeleting \033[0m". $tableName."\n";
 }
+function dropall(){
+  $schema = new Schema;
+  $tables = glob("migrations/*.php");
+  foreach($tables as $table){
+    include $table;
+    $schema->dropIfExists($GLOBALS["tableName"]);
+    echo "\033[32mDeleting \033[0m". $GLOBALS["tableName"]."\n";
+  }
+}
 if($argc < 2){
   help();
 
@@ -29,9 +38,15 @@ if($argc < 2){
 
 }elseif($argv[1] == "migrate"){
   migrate();
+
 }elseif($argv[1] == "drop"){
-  $table = $argv[2];
-  drop($table);
+  if(isset($argv[2])){
+    drop($argv[2]);
+  }
+
+}elseif($argv[1] == "dropall"){
+    dropall();
+
 }else{
   help();
 
