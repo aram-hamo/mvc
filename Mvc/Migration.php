@@ -3,6 +3,7 @@ namespace AramHamo\Mvc;
 
 class Migration{
   public $table = [];
+  public $options = '';
   public function id(){
     $this->table["id"] = "id INTEGER PRIMARY KEY AUTOINCREMENT";
   }
@@ -39,12 +40,13 @@ class Migration{
 
   }
   public function primaryKey($attr){
-    $this->table["$attr"] .= ",PRIMARY KEY($attr)";
+    $this->options .= ",PRIMARY KEY($attr)";
     return $this;
 
   }
   public function unique($attr){
-    return "UNIQUE($attr)";
+    $this->options .= ",UNIQUE($attr)";
+    return $this;
 
   }
 }

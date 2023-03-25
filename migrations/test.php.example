@@ -6,10 +6,10 @@ $table = new class {
   static function up(){
     $s = new Schema;
     $m = new Migration;
-    $m->text("text_attr",16/* length */);
+    $m->text("text_attr",16/* length */)->unique("text_attr");
     $m->int("int_attr",16/* length */);
     $m->text("char_attr",16/* length */)->primaryKey("char_attr");
-    $s->create($GLOBALS['tableName'],$m->table);
+    $s->create($GLOBALS['tableName'],$m->table,$m->options);
   }
   static function down(){
     $this->dropIfExists($GLOBALS['tableName']);

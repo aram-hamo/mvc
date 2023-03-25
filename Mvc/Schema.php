@@ -3,7 +3,7 @@ namespace AramHamo\Mvc;
 use  AramHamo\Mvc\DB;
 
 class Schema extends DB{
-  public function create(String $table_name,Array $attr){
+  public function create(String $table_name,Array $attr,String $options){
     $keys = array_keys($attr);
     $i = 0;
     $fields = '';
@@ -15,7 +15,7 @@ class Schema extends DB{
       }
       $i++;
     }
-    $stmt = "CREATE TABLE IF NOT EXISTS $table_name ($fields);";
+    $stmt = "CREATE TABLE IF NOT EXISTS $table_name (".$fields.$options.");";
     $createTable = $this->conn->exec($stmt);
   }
   public function dropIfExists(String $tableName){
