@@ -18,6 +18,7 @@ function migrate(){
 function drop($tableName){
   $schema = new Schema;
   $schema->dropIfExists($tableName);
+  echo "\033[32mDeleting \033[0m". $tableName."\n";
 }
 if($argc < 2){
   help();
