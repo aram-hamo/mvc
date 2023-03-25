@@ -2,8 +2,8 @@
 namespace AramHamo\Mvc\Controllers;
 use AramHamo\Mvc\View;
 
-class Home {
-  public static function get(){
+class Home{
+  public function get(){
     return View::render("home",array("title"=>"home"));
   }
 }

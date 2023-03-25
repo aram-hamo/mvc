@@ -2,6 +2,7 @@
 namespace AramHamo\Mvc;
 use AramHamo\Mvc\Models;
 use AramHamo\Mvc\View;
+use AramHamo\Mvc\Controller;
 use AramHamo\Mvc\Controllers\Home;
 
 class Router{
@@ -20,11 +21,12 @@ class Router{
   if(isset($preq[1]) && $preq[0] == '/'){
       $preq = substr($preq,1,strlen($preq)-1);
   }
-
     switch($preq){
       case '':
-        echo 'Home';
+        Controller::serve(new Home);
         break;
+      default:
+        echo "<h1>404</h1>";
     }
   }
 /* }}} */
