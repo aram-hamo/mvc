@@ -46,12 +46,12 @@ class Migration{
   }
 
   public function primaryKey($attr):Object{
-    $this->options .= ",PRIMARY KEY($attr)";
+    $this->table[$attr] .= " PRIMARY KEY";
     return $this;
   }
 
   public function unique($attr):Object{
-    $this->options .= ",UNIQUE($attr)";
+    $this->table[$attr] .= " UNIQUE";
     return $this;
   }
 

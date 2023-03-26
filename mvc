@@ -73,15 +73,15 @@ if($argc < 2){
   migrate();
 
 }elseif($argv[1] == "drop"){
-  if(isset($argv[2])){
-    drop($argv[2]);
-  }
+  if(!isset($argv[2])){help();exit;}
+  drop($argv[2]);
 
 }elseif($argv[1] == "dropall"){
     dropall();
 
 }elseif($argv[1] == "newpage"){
-    newPage($argv[2]);
+  if(!isset($argv[2])){help();exit;}
+  newPage($argv[2]);
 
 }else{
   help();
