@@ -6,6 +6,7 @@ class Migration{
   public $options = '';
   public function id():Object{
     $this->table["id"] = "id INTEGER PRIMARY KEY AUTOINCREMENT";
+    return $this;
   }
 
   public function text(String $attr,int $length=0):Object{
@@ -25,7 +26,7 @@ class Migration{
     return $this->text($attr,$length);
   }
 
-  public function int(String $attr,int $length):Object{
+  public function int(String $attr,int $length=0):Object{
     if($length < 1){
       $this->table[$attr] = "$attr INT";
     }else{
