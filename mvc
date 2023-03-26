@@ -9,6 +9,17 @@ function help(){
   echo "migrate       migrate\n";
 }
 function migrate(){
+if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
+  if(!extension_loaded("pdo_sqlite")){
+    echo "\033[31mError: \033[0mpdo_sqlite module not loaded\n";
+    exit;
+  }
+}else if(CONFIG["DATABASE"]["SOFTWARE"] == "mysql"){
+  if(!extension_loaded("pdo_mysql")){
+    echo "\033[31mError: \033[0mpdo_mysql module not loaded\n";
+    exit;
+  }
+}
   $tables = glob("migrations/*.php");
   foreach($tables as $table){
     include $table;
