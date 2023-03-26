@@ -41,6 +41,25 @@ function dropall(){
     echo "\033[32mDeleting \033[0m". $GLOBALS["tableName"]."\n";
   }
 }
+function newPage($pageName){
+  $controllerTemplate = '<?php declare(strict_types=1);
+  namespace AramHamo\Mvc\Controllers;
+  use AramHamo\Mvc\View;
+
+  class '.ucfirst($pageName).'{
+    public function get(){
+      return View::render("'.strtolower($pageName).'",array("title"=>"'.$pageName.'"));
+    }
+    public function post(){
+    }
+    public function update(){
+    }
+    public function delete(){
+    }
+  }';
+  $fController = fopen("Mvc/Controllers/".ucfirst($pageName.".php"),"w");
+  fwrite($fController,$controllerTemplate);
+}
 if($argc < 2){
   help();
 
@@ -57,6 +76,9 @@ if($argc < 2){
 
 }elseif($argv[1] == "dropall"){
     dropall();
+
+}elseif($argv[1] == "newpage"){
+    newPage($argv[2]);
 
 }else{
   help();
