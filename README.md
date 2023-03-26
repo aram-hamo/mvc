@@ -1,5 +1,5 @@
 ## Description
-Minimal MVC implementation written in PHP.
+Minimal MVC Framework written in PHP.
 
 ## Installation
 ### Composer
