@@ -4,12 +4,12 @@ require_once 'vendor/autoload.php';
 require '.config.php';
 use AramHamo\Mvc\Schema;
 function help(){
-  echo "Usage:\n\n";
-  echo "\033[32mserve             \033[0mlaunch a local dev server\n";
-  echo "\033[32mmigrate           \033[0mmigrate all\n";
-  echo "\033[32mmigrate \033[0m<table>   migrate a specific table\n";
-  echo "\033[32mdropall           \033[0mdrop all tables\n";
-  echo "\033[32mdrop \033[0m<table>      drop a specific table\n";
+echo "Usage:\n
+\033[32mserve             \033[0mlaunch a local dev server
+\033[32mmigrate           \033[0mmigrate all
+\033[32mmigrate \033[0m<table>   migrate a specific table
+\033[32mdropall           \033[0mdrop all tables
+\033[32mdrop \033[0m<table>      drop a specific table\n";
 }
 function migrate(){
 if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
