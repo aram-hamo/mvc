@@ -58,5 +58,9 @@ class Migration{
     $this->options .= ",FOREIGN KEY($attr) REFERENCES $table($tableAttr)";
     return $this;
   }
+  public function notNull($attr):Object{
+    $this->table[$attr] .= " NOT NULL";
+    return $this;
+  }
 
 }
