@@ -45,6 +45,7 @@ function dropall(){
   }
 }
 function newPage($pageName){
+  copy('templates/view.php',"views/".strtolower($pageName).".php");
   $controllerTemplate = '<?php declare(strict_types=1);
   namespace AramHamo\Mvc\Controllers;
   use AramHamo\Mvc\View;
