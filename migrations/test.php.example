@@ -1,6 +1,6 @@
 <?php
-use AramHamo\Mvc\Migration;
-use AramHamo\Mvc\Schema;
+use AramHamo\MvcCore\Migration;
+use AramHamo\MvcCore\Schema;
 $GLOBALS['tableName'] = "example_table";
 $table = new class {
   static function up(){

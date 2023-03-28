@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aram-hamo/mvc-core",
-            "version": "0.1.0",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aram-hamo/mvc-core.git",
-                "reference": "7cafdff884739d7f2c4c2a2299febfa446e1d7c6"
+                "reference": "c8bbde9f9257c88b083c52842b58499d9495217f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aram-hamo/mvc-core/zipball/7cafdff884739d7f2c4c2a2299febfa446e1d7c6",
-                "reference": "7cafdff884739d7f2c4c2a2299febfa446e1d7c6",
+                "url": "https://api.github.com/repos/aram-hamo/mvc-core/zipball/c8bbde9f9257c88b083c52842b58499d9495217f",
+                "reference": "c8bbde9f9257c88b083c52842b58499d9495217f",
                 "shasum": ""
             },
             "type": "library",
@@ -38,9 +38,9 @@
             ],
             "support": {
                 "issues": "https://github.com/aram-hamo/mvc-core/issues",
-                "source": "https://github.com/aram-hamo/mvc-core/tree/0.1.0"
+                "source": "https://github.com/aram-hamo/mvc-core/tree/0.1.2"
             },
-            "time": "2023-03-28T08:35:25+00:00"
+            "time": "2023-03-28T09:56:22+00:00"
         }
     ],
     "packages-dev": [
