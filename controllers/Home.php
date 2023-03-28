@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 namespace AramHamo\Mvc\Controllers;
-use AramHamo\Mvc\View;
+use AramHamo\MvcCore\View;
 
 class Home{
   public function get(){

@@ -5,7 +5,8 @@
     "license": "GPL-3.0-or-later",
     "autoload": {
       "psr-4":{
-        "AramHamo\\Mvc\\":"Mvc/"
+        "AramHamo\\Mvc\\":"Mvc/",
+        "AramHamo\\Mvc\\Controllers\\":"controllers/"
       }
     },
     "authors": [
@@ -16,5 +17,8 @@
     ],
     "require-dev": {
         "phpstan/phpstan": "^1.10"
+    },
+    "require": {
+        "aram-hamo/mvc-core": "^0.1.0"
     }
 }

@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4726e8ec6a227aa04200dd71987c61fe",
-    "packages": [],
+    "content-hash": "5ef0087927252522fd3e569d3fe48bd0",
+    "packages": [
+        {
+            "name": "aram-hamo/mvc-core",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aram-hamo/mvc-core.git",
+                "reference": "7cafdff884739d7f2c4c2a2299febfa446e1d7c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aram-hamo/mvc-core/zipball/7cafdff884739d7f2c4c2a2299febfa446e1d7c6",
+                "reference": "7cafdff884739d7f2c4c2a2299febfa446e1d7c6",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AramHamo\\MvcCore\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Aram Hamo",
+                    "email": "contact@aramhamo.me"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/aram-hamo/mvc-core/issues",
+                "source": "https://github.com/aram-hamo/mvc-core/tree/0.1.0"
+            },
+            "time": "2023-03-28T08:35:25+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "phpstan/phpstan",

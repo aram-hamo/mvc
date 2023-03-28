@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 require_once '../vendor/autoload.php';
-use AramHamo\Mvc\Router;
-use AramHamo\Mvc\Model;
+use AramHamo\MvcCore\Router;
 
 $router = new Router;
 $_SERVER['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'] ?? '';
