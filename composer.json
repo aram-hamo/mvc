@@ -19,6 +19,6 @@
         "phpstan/phpstan": "^1.10"
     },
     "require": {
-        "aram-hamo/mvc-core": "^0.1.0"
+        "aram-hamo/mvc-core": "^0.1.2"
     }
 }
