@@ -1,11 +1,9 @@
 <?php declare(strict_types=1);
-/* {{{ listen */
 namespace AramHamo\Mvc;
 use AramHamo\Mvc\Models;
 use AramHamo\Mvc\View;
 use AramHamo\Mvc\Controller;
 use AramHamo\Mvc\Routes;
-/* }}} */
 
 class Router{
   public function listen($req){

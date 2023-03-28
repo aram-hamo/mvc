@@ -9,7 +9,8 @@ echo "Usage:\n
 \033[32mmigrate           \033[0mmigrate all
 \033[32mmigrate \033[0m<table>   migrate a specific table
 \033[32mdropall           \033[0mdrop all tables
-\033[32mdrop \033[0m<table>      drop a specific table\n";
+\033[32mdrop \033[0m<table>      drop a specific table
+\033[32mnewpage \033[0m<page>    create new page\n";
 }
 function migrate(){
 if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
