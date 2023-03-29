@@ -48,20 +48,20 @@ function dropall(){
 function newPage($pageName){
   copy('templates/view.php',"views/".strtolower($pageName).".php");
   $controllerTemplate = '<?php declare(strict_types=1);
-  namespace AramHamo\Mvc\Controllers;
-  use AramHamo\MvcCore\View;
+namespace AramHamo\Mvc\Controllers;
+use AramHamo\MvcCore\View;
 
-  class '.ucfirst($pageName).'{
-    public function get(){
-      return View::render("'.strtolower($pageName).'",array("title"=>"'.$pageName.'"));
-    }
-    public function post(){
-    }
-    public function update(){
-    }
-    public function delete(){
-    }
-  }';
+class '.ucfirst($pageName).'{
+  public function get(){
+    return View::render("'.strtolower($pageName).'",array("title"=>"'.$pageName.'"));
+  }
+  public function post(){
+  }
+  public function update(){
+  }
+  public function delete(){
+  }
+}';
   $fController = fopen("controllers/".ucfirst($pageName.".php"),"w");
   fwrite($fController,$controllerTemplate);
 }

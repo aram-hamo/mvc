@@ -5,7 +5,7 @@ use AramHamo\MvcCore\View;
 
 final class ControllerTest extends TestCase{
 /** @test */
-  public function ControllerGETTest(){
+  public function ControllerGETTest():void{
 
     $testController = new class {
       public function get(){

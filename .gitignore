@@ -3,3 +3,4 @@ tags
 tmp/
 *.sqlite
 *.vim
+.phpunit.result.cache
