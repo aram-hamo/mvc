@@ -49,7 +49,7 @@ function newPage($pageName){
   copy('templates/view.php',"views/".strtolower($pageName).".php");
   $controllerTemplate = '<?php declare(strict_types=1);
   namespace AramHamo\Mvc\Controllers;
-  use AramHamo\Mvc\View;
+  use AramHamo\MvcCore\View;
 
   class '.ucfirst($pageName).'{
     public function get(){
@@ -62,7 +62,7 @@ function newPage($pageName){
     public function delete(){
     }
   }';
-  $fController = fopen("Mvc/Controllers/".ucfirst($pageName.".php"),"w");
+  $fController = fopen("controllers/".ucfirst($pageName.".php"),"w");
   fwrite($fController,$controllerTemplate);
 }
 if($argc < 2){
