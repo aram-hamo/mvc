@@ -5,12 +5,12 @@ require '.config.php';
 use AramHamo\Mvc\Schema;
 function help(){
 echo "Usage:\n
-\033[32mserve             \033[0mlaunch a local dev server
-\033[32mmigrate           \033[0mmigrate all
-\033[32mmigrate \033[0m<table>   migrate a specific table
-\033[32mdropall           \033[0mdrop all tables
-\033[32mdrop \033[0m<table>      drop a specific table
-\033[32mnewpage \033[0m<page>    create new page\n";
+\033[32mserve                      \033[0mlaunch a local dev server
+\033[32mmigrate                    \033[0mmigrate all
+\033[32mmigrate \033[0m<table>            migrate a specific table
+\033[32mdropall                    \033[0mdrop all tables
+\033[32mdrop \033[0m<table>               drop a specific table
+\033[32mnewpage \033[0m<pagename> <path>  create new page\n";
 }
 function migrate(){
 if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
@@ -46,6 +46,14 @@ function dropall(){
   }
 }
 function newPage($pageName,$path){
+  if(file_exists("controllers/".ucfirst($pageName).".php")){
+    echo "\033[31mError:\033[0m Controller \033[32m".ucfirst($pageName)."\033[0m already exists\n";
+    exit;
+  }
+  if(file_exists("views/".strtolower($pageName).".php")){
+    echo "\033[31mError:\033[0m View \033[32m".strtolower($pageName)."\033[0m already exists\n";
+    exit;
+  }
   include "templates/route.php";
   include "templates/controller.php";
   copy('templates/view.php',"views/".strtolower($pageName).".php");
