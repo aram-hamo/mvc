@@ -45,25 +45,14 @@ function dropall(){
     echo "\033[32mDeleting \033[0m". $GLOBALS["tableName"]."\n";
   }
 }
-function newPage($pageName){
+function newPage($pageName,$path){
+  include "templates/route.php";
+  include "templates/controller.php";
   copy('templates/view.php',"views/".strtolower($pageName).".php");
-  $controllerTemplate = '<?php declare(strict_types=1);
-namespace AramHamo\Mvc\Controllers;
-use AramHamo\MvcCore\View;
-
-class '.ucfirst($pageName).'{
-  public function get(){
-    return View::render("'.strtolower($pageName).'",array("title"=>"'.$pageName.'"));
-  }
-  public function post(){
-  }
-  public function update(){
-  }
-  public function delete(){
-  }
-}';
   $fController = fopen("controllers/".ucfirst($pageName.".php"),"w");
+  $fRoute = fopen("routes/".strtolower($pageName.".php"),"w");
   fwrite($fController,$controllerTemplate);
+  fwrite($fRoute,$routeTemplate);
 }
 if($argc < 2){
   help();
@@ -83,7 +72,7 @@ if($argc < 2){
 
 }elseif($argv[1] == "newpage"){
   if(!isset($argv[2])){help();exit;}
-  newPage($argv[2]);
+  newPage($argv[2],$argv[3]);
 
 }else{
   help();
