@@ -4,3 +4,4 @@ tmp/
 *.sqlite
 *.vim
 .phpunit.result.cache
+composer.lock
