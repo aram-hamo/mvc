@@ -4,21 +4,29 @@ use AramHamo\MvcCore\Controller;
 use AramHamo\MvcCore\View;
 
 final class ControllerTest extends TestCase{
-/** @test */
-  public function ControllerGETTest():void{
+  public function test():void{
 
     $testController = new class {
       public function get(){
-        return "Response";
+        return "GET";
       }
       public function post(){
+        return "POST";
       }
       public function update(){
+        return "UPDATE";
       }
       public function delete(){
+        return "DELETE";
       }
     };
-    $controllerResponse = Controller::serve(new $testController);
-    $this->assertSame("Response",$controllerResponse);
+    $controllerGETResponse = Controller::serve(new $testController,"GET");
+    $controllerPOSTResponse = Controller::serve(new $testController,"POST");
+    $controllerUPDATEResponse = Controller::serve(new $testController,"UPDATE");
+    $controllerDELETEResponse = Controller::serve(new $testController,"DELETE");
+    $this->assertSame("GET",$controllerGETResponse);
+    $this->assertSame("POST",$controllerPOSTResponse);
+    $this->assertSame("UPDATE",$controllerUPDATEResponse);
+    $this->assertSame("DELETE",$controllerDELETEResponse);
   }
 }
