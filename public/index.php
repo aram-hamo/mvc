@@ -7,6 +7,14 @@ $router = new Router;
 $_SERVER['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'] ?? '';
 define('SERVERSOFTWARE',$_SERVER['SERVER_SOFTWARE']);
 
+if(CONFIG["GENERAL"]["FORCE_SSL"] && $_SERVER["SERVER_SOFTWARE"] !== '' && empty($_SERVER["HTTPS"])){
+  $_SERVER["HTTP_HOST"] = $_SERVER["HTTP_HOST"] ?? '';
+  $_SERVER["REQUEST_URI"] = $_SERVER["REQUEST_URI"] ?? '';
+  header("HTTP/1.1 301 Moved Permanently");
+  header("Location: "."https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] );
+  exit;
+}
+
 if(!empty(SERVERSOFTWARE)){
   if(strpos(SERVERSOFTWARE,'PHP') !== false){
     $SERVER_SOFTWWARE = "php";
