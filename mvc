@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 require_once 'vendor/autoload.php';
-require '.config.php';
+define("CONFIG",parse_ini_file('.env',true));
 use AramHamo\Mvc\Schema;
 function help(){
 echo "Usage:\n

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 require_once '../vendor/autoload.php';
-require_once '../.config.php';
+define("CONFIG",parse_ini_file('../.env',true));
 use AramHamo\MvcCore\Router;
 
 $router = new Router;
