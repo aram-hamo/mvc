@@ -2,7 +2,8 @@
 <?php
 require_once 'vendor/autoload.php';
 define("CONFIG",parse_ini_file('.env',true));
-use AramHamo\Mvc\Schema;
+use AramHamo\MvcCore\Schema;
+/*{{{help*/
 function help(){
 echo "Usage:\n
 \033[32mserve                      \033[0mlaunch a local dev server
@@ -12,6 +13,8 @@ echo "Usage:\n
 \033[32mdrop \033[0m<table>               drop a specific table
 \033[32mnewpage \033[0m<pagename> <path>  create new page\n";
 }
+/*}}}*/
+/*{{{migrate*/
 function migrate(){
 if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
   if(!extension_loaded("pdo_sqlite")){
@@ -31,11 +34,15 @@ if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
     $table::up();
   }
 }
+/*}}}*/
+/*{{{drop*/
 function drop($tableName){
   $schema = new Schema;
   $schema->dropIfExists($tableName);
   echo "\033[32mDeleting \033[0m". $tableName."\n";
 }
+/*}}}*/
+/*{{{dropall*/
 function dropall(){
   $schema = new Schema;
   $tables = glob("migrations/*.php");
@@ -45,6 +52,8 @@ function dropall(){
     echo "\033[32mDeleting \033[0m". $GLOBALS["tableName"]."\n";
   }
 }
+/*}}}*/
+/*{{{newPage*/
 function newPage($pageName,$path){
   if(file_exists("controllers/".ucfirst($pageName).".php")){
     echo "\033[31mError:\033[0m Controller \033[32m".ucfirst($pageName)."\033[0m already exists\n";
@@ -62,6 +71,7 @@ function newPage($pageName,$path){
   fwrite($fController,$controllerTemplate);
   fwrite($fRoute,$routeTemplate);
 }
+/*}}}*/
 if($argc < 2){
   help();
 
@@ -86,3 +96,4 @@ if($argc < 2){
   help();
 
 }
+// vim: fdm=marker
