@@ -6,7 +6,8 @@
     "autoload": {
       "psr-4":{
         "AramHamo\\Mvc\\":"Mvc/",
-        "AramHamo\\Mvc\\Controllers\\":"controllers/"
+        "AramHamo\\Mvc\\Controllers\\":"controllers/",
+        "AramHamo\\Mvc\\Models\\":"models/"
       }
     },
     "authors": [
@@ -20,6 +21,6 @@
         "phpunit/phpunit": "^10.0"
     },
     "require": {
-        "aram-hamo/mvc-core": "^0.1.2"
+        "aram-hamo/mvc-core": "^0.3.0"
     }
 }
