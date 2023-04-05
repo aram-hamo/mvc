@@ -5,3 +5,4 @@ tmp/
 *.vim
 .phpunit.result.cache
 composer.lock
+.env
