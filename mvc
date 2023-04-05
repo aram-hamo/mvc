@@ -8,13 +8,15 @@ set_exception_handler(function($err){
 });
 /*{{{help*/
 function help(){
-echo "Usage:\n
-\033[32mserve                      \033[0mlaunch a local dev server
-\033[32mmigrate                    \033[0mmigrate all
-\033[32mmigrate \033[0m<table>            migrate a specific table
-\033[32mdropall                    \033[0mdrop all tables
-\033[32mdrop \033[0m<table>               drop a specific table
-\033[32mnewpage \033[0m<pagename> <path>  create new page\n";
+$green = "\033[32m";
+$white = "\033[0m";
+echo "Usage:\n$green
+serve                     $white launch a local dev server$green
+migrate                   $white migrate all$green
+migrate$white <table>            migrate a specific table$green
+dropall                   $white drop all tables$green
+drop$white <table>               drop a specific table$green
+newpage$white <pagename> <path>  create new page\n";
 }
 /*}}}*/
 /*{{{migrate*/
@@ -48,11 +50,11 @@ function drop($tableName){
 /*{{{dropall*/
 function dropall(){
   $schema = new Schema;
-  $tables = glob("migrations/*.php");
+  $tables = array_reverse(glob("migrations/*.php"));
   foreach($tables as $table){
     include $table;
-    $schema->dropIfExists($GLOBALS["tableName"]);
     echo "\033[32mDeleting \033[0m". $GLOBALS["tableName"]."\n";
+    $schema->dropIfExists($GLOBALS["tableName"]);
   }
 }
 /*}}}*/
