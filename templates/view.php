@@ -4,6 +4,6 @@
     <meta name=viewport content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <title><?= self::$viewData['title'] ?></title>
+  <title><?= self::viewData()['title'] ?></title>
 </body>
 </html>
