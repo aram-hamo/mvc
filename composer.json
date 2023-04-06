@@ -21,6 +21,6 @@
         "phpunit/phpunit": "^10.0"
     },
     "require": {
-        "aram-hamo/mvc-core": "^0.3.0"
+        "aram-hamo/mvc-core": "~0.4"
     }
 }
