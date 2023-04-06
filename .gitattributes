@@ -1,0 +1,4 @@
+.github export-ignore
+.gitattributes export-ignore
+Dockerfile export-ignore
+phpunit.xml export-ignore
