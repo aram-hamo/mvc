@@ -7,7 +7,7 @@
       "psr-4":{
         "AramHamo\\Mvc\\":"Mvc/",
         "AramHamo\\Mvc\\Controllers\\":"controllers/",
-        "AramHamo\\Mvc\\Models\\":"models/"
+        "AramHamo\\Mvc\\Models\\":"database/models/"
       }
     },
     "authors": [
