@@ -4,7 +4,7 @@ Minimal MVC Framework written in PHP.
 ## Getting Started
 ### Installation
 ```
-composer create-project aram-hamo/mvc
+composer create-project --no-dev aram-hamo/mvc
 ```
 ### Starting the local dev server
 The default port is ```8080```.
