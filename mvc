@@ -32,7 +32,7 @@ if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
     exit;
   }
 }
-  $tables = glob("migrations/*.php");
+  $tables = glob("database/migrations/*.php");
   foreach($tables as $table){
     include $table;
     echo "\033[32mCreating \033[0m". $GLOBALS['tableName']."\n";
@@ -50,7 +50,7 @@ function drop($tableName){
 /*{{{dropall*/
 function dropall(){
   $schema = new Schema;
-  $tables = array_reverse(glob("migrations/*.php"));
+  $tables = array_reverse(glob("database/migrations/*.php"));
   foreach($tables as $table){
     include $table;
     echo "\033[32mDeleting \033[0m". $GLOBALS["tableName"]."\n";
