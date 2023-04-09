@@ -17,7 +17,7 @@ This will create a View and a Controller with the same name of the \<pagename\>,
 php mvc newpage <pagename> <path>
 ```
 ### DB Migration
-This will migrate all the migration files found in ```migration/``` directory.
+This will migrate all the migration files found in ```database/migrations/``` directory.
 ```
 php mvc migrate
 ```
