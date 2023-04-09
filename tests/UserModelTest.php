@@ -5,7 +5,7 @@ use AramHamo\Mvc\Models\User;
 
 define("CONFIG",parse_ini_file('.env',true));
 
-final class UserModel extends TestCase{
+final class UserModelTest extends TestCase{
   public function test(){
     $user = new User;
     $user->firstName = "testusername";
