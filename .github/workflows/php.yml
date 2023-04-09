@@ -32,5 +32,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
+    - name: Migrate all tables
+      run: ./mvc migrate
+
     - name: running tests
       run: vendor/bin/phpunit
