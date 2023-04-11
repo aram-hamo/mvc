@@ -1,3 +1,5 @@
+![License](https://img.shields.io/github/license/aram-hamo/mvc?style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/aram-hamo/mvc/php.yml?style=for-the-badge)
 ## Description
 Minimal MVC Framework written in PHP.
 
