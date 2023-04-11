@@ -18,8 +18,8 @@ final class UserModelTest extends TestCase{
     $delete = $user->execute("delete from users where username='test-user'");
     $create = $user->create();
     
-    $this->assertSame(null,$delete,"couldn't delete a user");
-    $this->assertSame(null,$create,"couldn't create a user");
+    $this->assertNull($delete,"couldn't delete a user");
+    $this->assertNull($create,"couldn't create a user");
 
   }
 }
