@@ -18,6 +18,7 @@ $table = new class {
     $s->create($GLOBALS['tableName'],$m->table,$m->options);
   }
   static function down(){
-    $this->dropIfExists($GLOBALS['tableName']);
+    $s = new Schema;
+    $s->dropIfExists($GLOBALS['tableName']);
   }
 };
