@@ -20,7 +20,7 @@ newpage$white <pagename> <path>  create new page\n";
 }
 /*}}}*/
 /*{{{migrate*/
-function migrate(){
+function migrate($migrationFile=''){
 if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
   if(!extension_loaded("pdo_sqlite")){
     throw new Exception("pdo_sqlite module not loaded");
@@ -32,9 +32,15 @@ if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
     exit;
   }
 }
-  $tables = glob("database/migrations/*.php");
-  foreach($tables as $table){
-    include $table;
+  if(empty($migrationFile)){
+    $tables = glob("database/migrations/*.php");
+    foreach($tables as $table){
+      include $table;
+      echo "\033[32mCreating \033[0m". $GLOBALS['tableName']."\n";
+      $table::up();
+    }
+  }else{
+    include "database/migrations/$migrationFile.php";
     echo "\033[32mCreating \033[0m". $GLOBALS['tableName']."\n";
     $table::up();
   }
@@ -84,7 +90,7 @@ if($argc < 2){
   shell_exec("php -S 0.0.0.0:8080 -t public");
 
 }elseif($argv[1] == "migrate"){
-  migrate();
+  migrate($argv[2] ?? '');
 
 }elseif($argv[1] == "drop"){
   if(!isset($argv[2])){help();exit;}
