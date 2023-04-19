@@ -35,5 +35,13 @@ switch(php_sapi_name()){
     }
   break;
   default:
-    echo "server software not supported";
+    if(!strpos($_SERVER['SERVER_SOFTWARE'],'nginx')){
+      if(isset($_SERVER['DOCUMENT_URI'])){
+        $router->listen($_SERVER['DOCUMENT_URI']);
+      }else{
+        $router->listen('');
+      }
+    }else{
+      echo "server software not supported";
+    }
 }
