@@ -15,7 +15,6 @@ class Auth{
       $user->email     = $_POST["email"];
       $user->tokan     = $tokan;
       $user->create();
-      exec("mkdir /home/git/".$_POST["username"]);
       setcookie("tokan",$tokan,time()+60*60*24*30,'/',CONFIG["GENERAL"]["HOST"]);
       header("Location: /");
     }else if(isset($_POST["login"])){
